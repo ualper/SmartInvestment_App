@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Login PAge
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false, // Debug Mode Banner
       home: HomePage(),
@@ -18,10 +19,10 @@ class HomePage extends StatelessWidget {
           Colors.teal[500],
         ])),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: 100,
+              height: 30,
             ),
             Padding(
               padding: EdgeInsets.all(30),
@@ -105,14 +106,14 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 25,
                         ),
                         Text(
                           "Forgot Password?",
                           style: TextStyle(color: Colors.black45),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 25,
                         ),
                         Container(
                           height: 50,
@@ -129,7 +130,38 @@ class HomePage extends StatelessWidget {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
+                        ), // LOGIN
+                        SizedBox(
+                          height: 20,
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            InkWell(
+                              child: Container(
+                                height: 40,
+                                width: 140,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.cyanAccent[700]),
+                                child: Center(
+                                  child: Text(
+                                    "Sign Up",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                              onTap: () {
+                                //Navigator.push(SignUpPage);
+                              },
+                            ),
+                          ],
+                        ), // Sign Up
                         SizedBox(
                           height: 50,
                         ),
@@ -138,7 +170,7 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         Row(
                           children: <Widget>[
@@ -158,7 +190,7 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            ),
+                            ), // Facebook
                             SizedBox(
                               width: 25,
                             ),
@@ -178,9 +210,12 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            )
+                            ) // Gmail
                           ],
-                        )
+                        ), //Gmail+Facebook
+                        SizedBox(
+                          height: 30,
+                        ),
                       ],
                     ),
                   ),

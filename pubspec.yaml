@@ -16,7 +16,7 @@ dependencies:
 
   # A Flutter package for easy implementation of curved navigation bar.
   curved_navigation_bar: ^0.3.4 #latest version
-  # BubbleBottomBar is a Flutter widget designed by cubertodesign and developed by westdabestdb.
+  # BubbleBottomBar is a Flutter widget designed by others.
   bubble_bottom_bar: ^1.2.0
   #MySql database package
   mysql1: ^0.17.1
@@ -24,10 +24,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:

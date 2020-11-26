@@ -20,6 +20,12 @@ This project is a starting point for Mobile Crew Team as a Flutter application.
 
 
 
+USER STORY
+
+![user-story](https://user-images.githubusercontent.com/55507463/100323672-2929a000-2fd7-11eb-94cf-583b70ee46ea.jpg)
+
+
+
 Contributors:
   Navruz Yusuf BOY
   Ozan GECKIN

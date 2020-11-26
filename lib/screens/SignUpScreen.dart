@@ -121,7 +121,7 @@ class BackButtonWidget extends StatelessWidget {
       height: 200,
       decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage('asset/img/app.png'))),
+              fit: BoxFit.fill, image: AssetImage('assets/background.png'))),
       child: Positioned(
           child: Stack(
         children: <Widget>[
@@ -147,13 +147,13 @@ class BackButtonWidget extends StatelessWidget {
           Positioned(
             bottom: 20,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(30.0),
               child: Text(
                 'Create New Account',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18),
+                    fontSize: 20),
               ),
             ),
           )

@@ -1,114 +1,59 @@
+import 'pages/Pages.dart';
 import 'package:flutter/material.dart';
-import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 void main() => runApp(MenuScreen());
 
 class MenuScreen extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainMenuScreen(),
-      debugShowCheckedModeBanner: false,
+      home: MenuScreenPage(),
     );
   }
 }
 
-class MainMenuScreen extends StatefulWidget {
+class MenuScreenPage extends StatefulWidget {
+  MenuScreenPage({Key key}) : super(key: key);
+
   @override
-  _MenuScreenState createState() => _MenuScreenState();
+  _MenuScreenPageState createState() => _MenuScreenPageState();
 }
 
-class _MenuScreenState extends State {
-  int currentIndex;
-
-  @override
-  void initState() {
-    super.initState();
-
-    currentIndex = 0;
-  }
-
-  changePage(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
+class _MenuScreenPageState extends State<MenuScreenPage> {
+  int _selectedItem = 0;
+  var _pages = [FirstPage(), SecondPage(), ThirdPage()];
+  var _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Smart Investment Menu'),
-        centerTitle: true,
-        backgroundColor: Colors.teal[500],
+      body: PageView(
+        children: _pages,
+        onPageChanged: (index) {
+          setState(() {
+            _selectedItem = index;
+          });
+        },
+        controller: _pageController,
       ),
-      bottomNavigationBar: BubbleBottomBar(
-        opacity: 0.2,
-        backgroundColor: Colors.white54,
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20.0),
-        ),
-        currentIndex: currentIndex,
-        fabLocation: BubbleBottomBarFabLocation.end,
-        onTap: changePage,
-        items: [
-          BubbleBottomBarItem(
-            backgroundColor: Colors.indigo,
-            icon: Icon(
-              Icons.reorder,
-              color: Colors.black,
-            ),
-            activeIcon: Icon(
-              Icons.reorder,
-              color: Colors.indigo,
-            ),
-            title: Text('Watchlist'),
-          ),
-          BubbleBottomBarItem(
-            backgroundColor: Colors.indigo,
-            icon: Icon(
-              Icons.monetization_on_outlined,
-              color: Colors.black,
-            ),
-            activeIcon: Icon(
-              Icons.monetization_on,
-              color: Colors.indigo,
-            ),
-            title: Text('Market Info'),
-          ),
-          BubbleBottomBarItem(
-            backgroundColor: Colors.indigo,
-            icon: Icon(
-              Icons.polymer,
-              color: Colors.black,
-            ),
-            activeIcon: Icon(
-              Icons.polymer,
-              color: Colors.indigo,
-            ),
-            title: Text('News'),
-          ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.reorder), title: Text('Watchlist')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt_rounded), title: Text('Market Info')),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.language), title: Text('News'))
         ],
+        currentIndex: _selectedItem,
+        onTap: (index) {
+          setState(() {
+            _selectedItem = index;
+            _pageController.animateToPage(_selectedItem,
+                duration: Duration(milliseconds: 200), curve: Curves.linear);
+          });
+        },
       ),
-      body: (currentIndex == 0)
-          ? Icon(
-              Icons.reorder,
-              size: 150.0,
-              color: Colors.red,
-            )
-          : (currentIndex == 1)
-              ? Icon(
-                  Icons.monetization_on,
-                  size: 150.0,
-                  color: Colors.red,
-                )
-              : Icon(
-                  Icons.polymer,
-                  size: 150.0,
-                  color: Colors.red,
-                ),
     );
   }
 }

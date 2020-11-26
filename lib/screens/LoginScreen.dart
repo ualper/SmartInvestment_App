@@ -105,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                           height: 25,
                         ),
 
-                        RaisedButton(
+                        FlatButton(
                           onPressed: () {
                             print(
                                 "Forgot Password Tapped"); // handle your onTap here
@@ -117,27 +117,35 @@ class LoginScreen extends StatelessWidget {
                           },
                           child: Text(
                             "Forgot Password?",
-                            style: TextStyle(color: Colors.black45),
+                            style: TextStyle(
+                              color: Colors.black45,
+                              fontSize: 15,
+                            ),
                           ),
                         ),
 
                         SizedBox(
-                          height: 25,
+                          height: 5,
                         ),
-                        Container(
-                          height: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Colors.greenAccent[700]),
-                          child: Center(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
+
+                        RaisedButton.icon(
+                          textColor: Colors.white,
+                          color: Colors.greenAccent[400],
+                          onPressed: () {
+                            print("Login Pressed"); // handle your onTap here
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MenuScreen()),
+                            );
+                          },
+                          icon: Icon(Icons.login, size: 30),
+                          label: Text(
+                            "LOGIN",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
                           ),
                         ), // LOGIN
                         SizedBox(
@@ -150,8 +158,8 @@ class LoginScreen extends StatelessWidget {
                           children: <Widget>[
                             InkWell(
                               child: Container(
-                                height: 40,
-                                width: 140,
+                                height: 30,
+                                width: 120,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.cyanAccent[700]),
@@ -179,7 +187,7 @@ class LoginScreen extends StatelessWidget {
                           ],
                         ), // Sign Up
                         SizedBox(
-                          height: 50,
+                          height: 30,
                         ),
                         Text(
                           "Sign in with social media",
@@ -192,7 +200,7 @@ class LoginScreen extends StatelessWidget {
                           children: <Widget>[
                             Expanded(
                               child: Container(
-                                height: 50,
+                                height: 45,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.blue[700]),
@@ -208,11 +216,11 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ), // Facebook
                             SizedBox(
-                              width: 25,
+                              width: 40,
                             ),
                             Expanded(
                               child: Container(
-                                height: 50,
+                                height: 45,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Colors.red[700]),
